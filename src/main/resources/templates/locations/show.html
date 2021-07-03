@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Party Location</title>
+</head>
+<body>
+   <main th:object="${location}">
+     <h1 th:text="*{name}"></h1>
+      <p th:text="*{city}"></p>
+      <p th:text="*{state}"></p>
+      <p th:text="${location.rentalPrice != null? location.rentalPrice : 'Free'}"></p>
+
+   <div>
+    <h4>Every parties in this location</h4>
+    <ul th:each="party : *{parties}" th:object="${party}">
+       <li>
+         <h4 th:text="*{name}"></h4>
+         <p th:text="*{description}"></p>
+       </li>
+    </ul>
+   </div>
+  </main>
+
+</body>
+</html>

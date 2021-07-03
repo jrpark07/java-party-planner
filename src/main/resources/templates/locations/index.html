@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>Locations List</title>
+</head>
+<body>
+  <h1>Party Locations</h1>
+  <div th:each="location : ${locations}" th:object="${location}">
+    <a th:href="|/locations/${location.id}|">
+      <h2 th:text="*{name}"></h2>
+    </a>
+      <h4 th:text="*{city}"></h4>
+      <h4 th:text="*{state}"></h4>
+      <h4 th:text="${location.rentalPrice != null? location.rentalPrice : 'Free'}"></h4>
+  </div>
+
+  <a href="/locations/new">Add Party Location!</a>
+</body>
+</html>
